@@ -1,6 +1,5 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import icons from "./img/icons.svg";
 
 const images = [
   {
@@ -68,51 +67,38 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-const galleryItems = images.map(createImageItem);
 
-function createImageItem(image) {
-  const preview = image.preview;
-    const original = image.original;
-    const description = image.description;
-    
-    return `
-    <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-            <img
-                class="gallery-image"
-                src="${preview}"
-                data-source="${original}"
-                alt="${description}"
-            />
-        </a>
-    </li>
-    `;
-}   
-gallery.insertAdjacentHTML("beforeend", galleryItems.join(""));
+const list = document.querySelector('.gallery');
 
-const closeBtn = `<svg class="close-btn" width="14" height="14">
-<use href="${icons}#icon-close-btn"></use>
-</svg>`;
-const nextBtn = `<svg class="next-btn" width="14" height="14">
-<use href="${icons}#icon-next-btn"></use>
-</svg>`;
-const prevBtn = `<svg class="prev-btn" width="14" height="14">
-<use href="${icons}#icon-prev-btn"></use>
-</svg>`;
+const elements = [];
 
-new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
+for (let i = 0; i < images.length; i++) {
+  
+  const { preview, original, description } = images[i];
+
+  const li = document.createElement('li');
+  li.classList.add('gallery-item');
+  li.setAttribute('alt', description);
+  list.append(li);
+  
+  const a = document.createElement('a');
+  a.classList.add('gallery-link');
+  a.setAttribute('href', original);
+  a.setAttribute('alt', description);
+  li.append(a);
+  
+  const img = document.createElement('img');
+  img.classList.add('gallery-image');
+  img.setAttribute('src', preview);
+  img.setAttribute('alt', description);
+  a.append(img);
+  elements.push(li);
+};
+  
+list.append(...elements);
+
+new SimpleLightbox('.gallery a',
+  { 
+    captionsData: 'alt',
     captionDelay: 250,
-    captionPosition: "bottom",
-    animationSpeed: 250,
-    animationSlide: true,
-    swipeClose: true,
-    showCounter: true,
-    swipeTolerance: 50,
-    className: "gallery-lightbox",
-    widthRatio: 0.9,
-    heightRatio: 0.9,
-    closeText: closeBtn,
-    navText: [prevBtn, nextBtn],
 });
