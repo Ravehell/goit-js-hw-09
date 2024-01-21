@@ -1,0 +1,80 @@
+.feedback-form {
+  width: 408px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-bottom: 8px;
+  color: #2e2f42;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.64px;
+}
+
+input {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+input:hover {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+input:active,
+input:focus {
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+textarea {
+  padding: 8px 16px;
+  resize: none;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+textarea:hover {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+textarea:active,
+textarea:focus {
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+button {
+  padding: 8px 16px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #4e75ff;
+  border: none;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.64px;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #6c8cff;
+}
