@@ -1,6 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import icons from "../img/icons.svg";
+import icons from "./img/icons.svg";
 
 const images = [
   {
